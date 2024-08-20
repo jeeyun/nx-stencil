@@ -1,0 +1,26 @@
+diff --git a/node_modules/@stencil/react-output-target/dist/react-output-target.cjs b/node_modules/@stencil/react-output-target/dist/react-output-target.cjs
+index 73c905b..0dd5779 100644
+--- a/node_modules/@stencil/react-output-target/dist/react-output-target.cjs
++++ b/node_modules/@stencil/react-output-target/dist/react-output-target.cjs
+@@ -10,7 +10,7 @@
+ import React from 'react';
+ import { createComponent } from '@stencil/react-output-target/runtime';
+ import type { EventName } from '@stencil/react-output-target/runtime';
+-  `);for(const r of a){const m=r.tagName,n=S(m),p=`${n}Element`,$=`${n}CustomEvent`;t.addImportDeclaration({moduleSpecifier:`${s}/${i}/${m}.js`,namedImports:[{name:n,alias:p},{name:"defineCustomElement",alias:`define${n}`}]});const N=(r.events||[]).filter(e=>e.internal===!1),g=[];for(const e of N)if(Object.keys(e.complexType.references).length>0){for(const v of Object.keys(e.complexType.references))e.complexType.references[v].location==="global"||t.addImportDeclaration({moduleSpecifier:s,namedImports:[{name:v,isTypeOnly:!0}]});t.addImportDeclaration({moduleSpecifier:s,namedImports:[{name:$,isTypeOnly:!0}]}),g.push({originalName:e.name,name:C(e.name),type:`EventName<${$}<${e.complexType.original}>>`})}else g.push({originalName:e.name,name:C(e.name),type:`EventName<CustomEvent<${e.complexType.original}>>`});const T=`${n}Events`;t.addTypeAlias({name:T,type:g.length>0?`{ ${g.map(e=>`${e.name}: ${e.type}`).join(`,
++  `);for(const r of a){const m=r.tagName,n=S(m),p=`${n}Element`,$=`${n}CustomEvent`;t.addImportDeclaration({moduleSpecifier:`${s}/dist/components/${m}.js`,namedImports:[{name:n,alias:p},{name:"defineCustomElement",alias:`define${n}`}]});const N=(r.events||[]).filter(e=>e.internal===!1),g=[];for(const e of N)if(Object.keys(e.complexType.references).length>0){for(const v of Object.keys(e.complexType.references))e.complexType.references[v].location==="global"||t.addImportDeclaration({moduleSpecifier:s,namedImports:[{name:v,isTypeOnly:!0}]});t.addImportDeclaration({moduleSpecifier:s,namedImports:[{name:$,isTypeOnly:!0}]}),g.push({originalName:e.name,name:C(e.name),type:`EventName<${$}<${e.complexType.original}>>`})}else g.push({originalName:e.name,name:C(e.name),type:`EventName<CustomEvent<${e.complexType.original}>>`});const T=`${n}Events`;t.addTypeAlias({name:T,type:g.length>0?`{ ${g.map(e=>`${e.name}: ${e.type}`).join(`,
+ `)} }`:"NonNullable<unknown>"});const F=t.addVariableStatement({declarationKind:h.VariableDeclarationKind.Const,declarations:[{name:n,initializer:`/*@__PURE__*/ createComponent<${p}, ${T}>({
+           tagName: '${m}',
+           elementClass: ${p},
+diff --git a/node_modules/@stencil/react-output-target/dist/react-output-target.js b/node_modules/@stencil/react-output-target/dist/react-output-target.js
+index 9e59cca..b3729aa 100644
+--- a/node_modules/@stencil/react-output-target/dist/react-output-target.js
++++ b/node_modules/@stencil/react-output-target/dist/react-output-target.js
+@@ -25,7 +25,7 @@ import type { EventName } from '@stencil/react-output-target/runtime';
+   for (const s of a) {
+     const m = s.tagName, n = S(m), p = `${n}Element`, y = `${n}CustomEvent`;
+     t.addImportDeclaration({
+-      moduleSpecifier: `${r}/${i}/${m}.js`,
++      moduleSpecifier: `${r}/dist/components/${m}.js`,
+       namedImports: [
+         {
+           name: n,

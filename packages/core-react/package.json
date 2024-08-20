@@ -1,0 +1,16 @@
+{
+  "name": "@ui/react",
+  "version": "0.0.1",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "dependencies": {
+    "@ui/core": "*",
+    "@stencil/react-output-target": "^0.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "tslib": "^2.6.3"
+  }
+}

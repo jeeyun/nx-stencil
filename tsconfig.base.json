@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "lib": ["dom", "es2022", "esnext"],
+    "target": "es2022",
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "paths": {
+      "@ui/core": ["dist/core"],
+      "@ui/core/*": ["dist/core/*"],
+      "@ui/react": ["dist/core-react"]
+    }
+  },
+  "exclude": ["./node_modules", "./tmp"]
+}

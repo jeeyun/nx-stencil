@@ -1,0 +1,40 @@
+{
+  "name": "core-react",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/core-react/src",
+  "projectType": "library",
+  "tags": ["wrapper", "react", "publishable"],
+  "implicitDependencies": ["core"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/core-react",
+        "tsConfig": "packages/core-react/tsconfig.lib.json",
+        "project": "packages/core-react/package.json",
+        "entryFile": "packages/core-react/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/core-react/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/core-react/jest.config.ts"
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "extends": "nx/presets/npm.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "packages"
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "{workspaceRoot}/config/**/*",
+      "{workspaceRoot}/package.json",
+      "{workspaceRoot}/tailwind.config.ts"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.spec.ts",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.ts",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "core"
+        }
+      ],
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
+    },
+    "e2e": {
+      "cache": true,
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "core"
+        }
+      ],
+      "inputs": ["default", "^production"]
+    },
+    "@nx/eslint:lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
+      ]
+    }
+  },
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "babel": true,
+        "style": "css",
+        "linter": "eslint",
+        "bundler": "vite"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint",
+        "unitTestRunner": "jest"
+      },
+      "component": {
+        "style": "css"
+      }
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
+      }
+    }
+  ]
+}
