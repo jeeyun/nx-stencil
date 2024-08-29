@@ -54,3 +54,7 @@ testem.log
 .DS_Store
 Thumbs.db
 package.e2e.json
+
+# Next.js
+.next
+out
