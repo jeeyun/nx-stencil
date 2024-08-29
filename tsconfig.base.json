@@ -20,7 +20,8 @@
     "paths": {
       "@ui/core": ["dist/core"],
       "@ui/core/*": ["dist/core/*"],
-      "@ui/react": ["dist/core-react"]
+      "@ui/react": ["dist/core-react"],
+      "@ui/react/ssr": ["dist/core-react/ssr"]
     }
   },
   "exclude": ["./node_modules", "./tmp"]

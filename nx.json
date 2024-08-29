@@ -73,6 +73,12 @@
       "component": {
         "style": "css"
       }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "tailwind",
+        "linter": "eslint"
+      }
     }
   },
   "plugins": [
