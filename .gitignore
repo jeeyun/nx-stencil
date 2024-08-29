@@ -14,6 +14,8 @@ chromatic-diagnostics.json
 master.zip
 packages/core/.stencil
 packages/core-react/src/components.ts
+packages/core-react/ssr/components.ts
+packages/core-react/ssr/components.server.ts
 !.gitkeep
 
 # dependencies

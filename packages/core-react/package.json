@@ -4,9 +4,21 @@
   "main": "./src/index.js",
   "module": "./src/index.js",
   "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.js",
+      "types": "./src/index.d.ts"
+    },
+    "./ssr": {
+      "import": "./ssr/index.js",
+      "require": "./ssr/index.js",
+      "types": "./ssr/index.d.ts"
+    }
+  },
   "dependencies": {
     "@ui/core": "*",
-    "@stencil/react-output-target": "^0.6.0"
+    "@stencil/react-output-target": "^0.7.1"
   },
   "peerDependencies": {
     "react": ">=18.0.0",

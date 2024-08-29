@@ -28,6 +28,12 @@ export const config: Config = {
     },
     react({
       outDir: resolve(__dirname, '../core-react/src/').replace(/\\/g, '/'),
+      customElementsDir,
+    }),
+    react({
+      outDir: resolve(__dirname, '../core-react/ssr').replace(/\\/g, '/'),
+      hydrateModule: '@ui/core/dist/hydrate',
+      customElementsDir,
     }),
   ],
   /* -------------------------------------------------------------------------- */
@@ -35,5 +41,6 @@ export const config: Config = {
   /* -------------------------------------------------------------------------- */
   extras: {
     experimentalImportInjection: true,
+    experimentalSlotFixes: true,
   },
 };
