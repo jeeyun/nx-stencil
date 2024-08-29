@@ -7,23 +7,14 @@
   "implicitDependencies": ["core"],
   "targets": {
     "build": {
-      "executor": "@nx/rollup:rollup",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/js:tsc",
       "options": {
+        "clean": true,
+        "main": "packages/core-react/src/index.ts",
+        "assets": ["packages/beeq-react/README.md"],
         "outputPath": "dist/core-react",
-        "tsConfig": "packages/core-react/tsconfig.lib.json",
         "project": "packages/core-react/package.json",
-        "entryFile": "packages/core-react/src/index.ts",
-        "external": ["react", "react-dom", "react/jsx-runtime"],
-        "rollupConfig": "@nx/react/plugins/bundle-rollup",
-        "compiler": "babel",
-        "assets": [
-          {
-            "glob": "packages/core-react/README.md",
-            "input": ".",
-            "output": "."
-          }
-        ]
+        "tsConfig": "packages/core-react/tsconfig.lib.json"
       }
     },
     "lint": {
