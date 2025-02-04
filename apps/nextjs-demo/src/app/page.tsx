@@ -1,4 +1,4 @@
-import { MyComponent } from '@ui/react/ssr';
+import { MyCard, MyComponent } from '@ui/react/ssr';
 
 export default function Index() {
   /*
@@ -7,11 +7,11 @@ export default function Index() {
    * Note: The corresponding styles are in the ./index.tailwind file.
    */
   return (
-    <div className="container">
-      <h1>
+    <MyCard className="mt-4">
+      <h1 slot="title">
         <span> Hello there, </span> Welcome nextjs-demo 👋
-        <MyComponent first="Stencil" middle="React" last="SSR" />
       </h1>
-    </div>
+      <MyComponent first="Stencil" middle="React" last="SSR" />
+    </MyCard>
   );
 }

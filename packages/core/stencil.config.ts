@@ -4,8 +4,14 @@ import { resolve } from 'path';
 
 const customElementsDir = 'dist/components';
 
+const resolvePath = (relativePath: string): string =>
+  resolve(__dirname, relativePath).replace(/\\/g, '/');
+
 export const config: Config = {
   namespace: 'core',
+  buildDist: true,
+  enableCache: true,
+  cacheDir: resolvePath('../../.stencil'),
   taskQueue: 'async',
   sourceMap: true,
   /* -------------------------------------------------------------------------- */
@@ -27,11 +33,11 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     react({
-      outDir: resolve(__dirname, '../core-react/src/').replace(/\\/g, '/'),
+      outDir: resolvePath('../core-react/src/'),
       customElementsDir,
     }),
     react({
-      outDir: resolve(__dirname, '../core-react/ssr').replace(/\\/g, '/'),
+      outDir: resolvePath('../core-react/ssr'),
       hydrateModule: '@ui/core/dist/hydrate',
       customElementsDir,
     }),
@@ -40,7 +46,8 @@ export const config: Config = {
   /*                                   Extras                                   */
   /* -------------------------------------------------------------------------- */
   extras: {
-    experimentalImportInjection: true,
+    enableImportInjection: true,
+    experimentalScopedSlotChanges: true,
     experimentalSlotFixes: true,
   },
 };

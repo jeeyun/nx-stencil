@@ -10,16 +10,6 @@
     }
   },
   "targets": {
-    "test": {
-      "executor": "@nxext/stencil:test",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "projectType": "library",
-        "tsConfig": "packages/core/tsconfig.lib.json",
-        "configPath": "packages/core/stencil.config.ts",
-        "outputPath": "dist/core"
-      }
-    },
     "build": {
       "executor": "@nxext/stencil:build",
       "outputs": ["{options.outputPath}"],
@@ -44,26 +34,6 @@
         "tsConfig": "packages/core/tsconfig.lib.json",
         "configPath": "packages/core/stencil.config.ts",
         "outputPath": "dist/core"
-      }
-    },
-    "e2e": {
-      "executor": "@nxext/stencil:e2e",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "projectType": "library",
-        "tsConfig": "packages/core/tsconfig.lib.json",
-        "configPath": "packages/core/stencil.config.ts",
-        "outputPath": "dist/core",
-        "runInBand": true,
-        "maxWorkers": 1,
-        "noBuild": true
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["{projectRoot}/**/*.{ts,tsx}", "{projectRoot}/package.json", "{projectRoot}/project.json"]
       }
     }
   }
