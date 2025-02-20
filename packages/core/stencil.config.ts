@@ -24,6 +24,7 @@ export const config: Config = {
       customElementsExportBehavior: 'single-export-module',
       dir: customElementsDir,
       minify: true,
+      externalRuntime: false,
     },
     { type: 'dist-hydrate-script', dir: 'dist/hydrate' },
     { type: 'docs-readme' },

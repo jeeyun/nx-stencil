@@ -1,4 +1,4 @@
-import { MyCard, MyComponent } from '@ui/react/ssr';
+import { MyCard, MyButton } from '@ui/react/ssr';
 
 export default function Index() {
   /*
@@ -11,7 +11,7 @@ export default function Index() {
       <h1 slot="title">
         <span> Hello there, </span> Welcome nextjs-demo 👋
       </h1>
-      <MyComponent first="Stencil" middle="React" last="SSR" />
+      <MyButton>My Custom Button</MyButton>
     </MyCard>
   );
 }
